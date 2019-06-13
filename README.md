@@ -20,7 +20,7 @@ Word2vec，Fasttext，Glove，Elmo，Bert and Flair pre-train Word Embedding
 3、实验数据简介
 -------------------
 * stop_words.txt: 停用词数据，用于数据预处理使用
-* wiki.zh.text.jian: wiki百科简体中文原始数据，wiki.zh.text.jian.fenci: wiki百科简体中文分词后数据，wiki百科数据主要在word2vec的skipgram模型中使用，数据量较大，以放百度网盘，地址: [链接](https://pan.baidu.com/s/1DeIaIO35eWzZP75YRGNU9w), 密码: bvmw 
+* wiki.zh.text.jian: wiki百科简体中文原始数据，wiki.zh.text.jian.fenci: wiki百科简体中文分词后数据，wiki百科数据主要在word2vec的skipgram模型中使用，数据量较大，已放百度网盘，地址: [链接](https://pan.baidu.com/s/1DeIaIO35eWzZP75YRGNU9w), 密码: bvmw 
 * toutiao_word_corpus.txt: 头条公开的新闻类分类数据，word2vec的gensim库实验、fasttext算法、glove算法中有使用
 
 

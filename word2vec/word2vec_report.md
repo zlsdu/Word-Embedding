@@ -1,10 +1,10 @@
 
-word2vec说明<br>
+word2vec中文词向量训练<br>
 ======
 <br>
 
 这里不对原理作介绍，word2vec原理好文请移步：<br>
-[[NLP] 秒懂词向量Word2vec的本质](https://zhuanlan.zhihu.com/p/26306795)<br>
+[[NLP] 秒懂词向量Word2vec的本质](https://zhuanlan.zhihu.com/p/26306795)、
 [word2vec前世今生](https://www.cnblogs.com/iloveai/p/word2vec.html)<br>
 下面介绍在编程中需要注意的点
 

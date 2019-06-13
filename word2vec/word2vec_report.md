@@ -1,6 +1,17 @@
 
 word2vec说明<br>
 ======
+<br>
+
+本文不对原理作介绍，word2vec原理好文请移步：<br>
+[[NLP] 秒懂词向量Word2vec的本质](https://zhuanlan.zhihu.com/p/26306795)<br>
+[word2vec前世今生](https://www.cnblogs.com/iloveai/p/word2vec.html)
+
+
+<br>
+
+
+
 1、genism库<br>
 -------
 gensim库中提供了word2vec的cbow模型和skipgram模型的实现，可直接调用

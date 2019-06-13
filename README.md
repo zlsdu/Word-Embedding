@@ -24,6 +24,9 @@ Word2vec，Fasttext，Glove，Elmo，Bert and Flair pre-train Word Embedding
 * toutiao_word_corpus.txt: 头条公开的新闻类分类数据，word2vec的gensim库实验、fasttext算法、glove算法中有使用
 
 
+4、欢迎关注公众号
+------------------
 
+![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/gongzhonghao.png)
 
 

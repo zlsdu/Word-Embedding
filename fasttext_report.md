@@ -1,7 +1,7 @@
 fasttext中文词向量训练
 ==========
 fasttext原理好文请移步：
-[fastText原理及实践](https://zhuanlan.zhihu.com/p/32965521)<br>
+[fastText原理和文本分类实战](https://blog.csdn.net/feilong_csdn/article/details/88655927)<br>
 
 
 1、fasttext词向量实战简介

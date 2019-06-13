@@ -40,8 +40,8 @@ ELMO预训练接下游任务使用详细参见源代码<br>
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo4.png)
 
 注意两点：<br>
-*word2vec预训练词向量只需要根据上面提到词向量训练方式对语料库进行预训练即可<br>
-*词表数据vocab.data：使用语料库生成词表，但需要在词表开始额外添加三行<S>,</S>,<UNK> <br>
+* word2vec预训练词向量只需要根据上面提到词向量训练方式对语料库进行预训练即可<br>
+* 词表数据vocab.data：使用语料库生成词表，但需要在词表开始额外添加如下开头三行
 
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo5.png)
 
@@ -58,10 +58,10 @@ ELMO预训练接下游任务使用详细参见源代码<br>
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo7.png)
 
 解释<br>
-*将load_vocab函数的第二个参数修改为None<br>
-*设定运行elmo程序可见的GPU数<br>
-*n_train_tokens：其大小间接影响程序迭代次数，可结合语料库大小进行设置<br>
-*将此部分完全注释掉<br>
+* 将load_vocab函数的第二个参数修改为None<br>
+* 设定运行elmo程序可见的GPU数<br>
+* n_train_tokens：其大小间接影响程序迭代次数，可结合语料库大小进行设置<br>
+* 将此部分完全注释掉<br>
 
 (2)修改bilm/train.py文件<br>
 
@@ -70,7 +70,7 @@ ELMO预训练接下游任务使用详细参见源代码<br>
 如上图首先修改加载预训练词向量信息，初始化Word Embeddings，并同时将参数trainable设置为True，其次另一处修改如下图所示，将最终得到的 
 model.embedding_weights保存到hdf5文件中
 
-![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elm9.png)
+![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo9.png)
 
 
 (3)在bilm-tf目录下，启动训练程序，启动命令如下<br>
@@ -87,7 +87,7 @@ nohup python -u bin/train_elmo.py \
 参数save_dir是运行中模型保存路径<br>
 经过较长时间，运行结束后，产生模型文件如下<br>
 
-![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elm10.png)
+![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo10.png)
 
 (4)在bilm-tf目录下，运行bin/dump_weights.py将checkpoint转换成hdf5文件<br>
 
@@ -99,21 +99,66 @@ python -u  bin/dump_weights.py  \
 
 最终得到的模型文件如下：<br>
 
-![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elm11.png)
+![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo11.png)
 
 至此elmo中文模型已经训练结束，已经得到了vocab.data对应的vocab_embedding.hdf5文件，以及elmo模型对应的weights.hdf5文件和options.json文件，可以使用usage_token.py文件训练得到词向量<br>
 
 (5)修改usage_token.py文件，运行usage_token.py文件得到词向量<br>
 
-![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elm12.png)
+![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo12.png)
 
-![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elm13.png)
+![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo13.png)
 
 python usage_token.py：便可得到词向量数据
 
 
 
+Elmo相关原理简介
+===========
 
+1、ELMO模型结构
+------------
+
+ELMO首先根据名字Embedding from language model便可以ELMO是一个基于语言模型的词向量预训练模型，其次ELMO区别于word2vec、fasttext、glove静态词向量无法表示多义词，ELMO是动态词向量，不仅解决了多义词问题而且保证了在词性上相同<br>
+
+ELMO模型使用语言模型Language Model进行训练，ELMO预训练后每个单词对应三个Embedding向量:<br>
+
+(1) 底层对应的是Word Embedding，提取word的信息<br>
+(2) 第一层双向LSTM对应是Syntactic Embedding，提取高于word的句法信息<br>
+(3) 第二层双向LSTM对应的是Semantic Embedding，提取高于句法的语法信息<br>
+
+ELMO在下游任务中是将每个单词对应的三个Embedding按照各自权重进行累加整合成一个作为新特征给下游任务使用，如下图所示：
+
+![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo14.png)
+
+在Bert论文中也给出了ELMO的模型图，比上图更简洁易于理解：
+
+![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo15.png)
+
+下面通过公式来再深入理解一下ELMO的双向LSTM语言模型，有一个前向和后向的语言模型构成，目标函数是取这两个方向语言模型的最大似然<br>
+
+给定N个tokens，前向LSTM结构为：<br>
+
+![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo16.png)
+
+后向LSTM结构为：
+
+![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo17.png)
+
+Bi-LSTM的目标函数既是最大化前向和后向的对数似然和：
+
+![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/elmo18.png)
+
+
+2、ELMO的优缺点
+---------------
+
+ELMO的优点便是使用了双层Bi-LSTM，并且最终模型学到的是Word Embedding + Syntactic Embedding + Semantic Embedding的线性组合<br>
+
+ELMO相较于Bert模型来说，有以下缺点：<br>
+
+(1) ELMO在特征抽取器选择方面使用的是LSTM，而不是更好用Transformer，Bert中使用的便是Transformer，Transformer是个叠加的自注意力机制构成的深度网络，是目前NLP里最强的特征提取器<br>
+(2) ELMO采用双向拼接融合特征，相对于Bert一体化融合特征方式可能较弱<br>
 
 
 

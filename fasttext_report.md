@@ -14,11 +14,12 @@ $ ./fasttext skipgram -input data/fil9 -output result/fil9
 <br>
 上面命令是使用skipgram进行词向量学习，当然也可以使用cbow进行词向量学习<br>
 
+
 ```Bash
 $ ./fasttext cbow -input data/fil9 -output result/fil9
 ```
 <br>
-可调参数有：词向量的维度、subwords范围、epoch、learning_rate、thread<br>
+可调参数有：`词向量的维度`, `subwords范围`, `epoch`, `learning_rate`, `thread` <br>
 
 ```Bash
 $ ./fasttext skipgram -input data/fil9 -output result/fil9 -minn 2 -maxn 5 

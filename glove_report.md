@@ -64,7 +64,7 @@ Glove是一种矩阵分解式词向量预训练模型，如果我们要得到目
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/glove8.png)
 
 
-(3)Glove分解误差及优化目标定义：<br>
+(3) Glove分解误差及优化目标定义：<br>
 
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/glove9.png)
 

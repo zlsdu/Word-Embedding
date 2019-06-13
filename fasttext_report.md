@@ -21,7 +21,7 @@ $ ./fasttext cbow -input data/fil9 -output result/fil9
 ```
 <br>
 
-可调参数有：`词向量的维度` `subwords范围`  `epoch` `learning_rate` `thread` <br>
+可调参数有：`词向量的维度`，`subwords范围`， `epoch`， `learning_rate`， `thread` <br>
 
 ```Bash
 $ ./fasttext skipgram -input data/fil9 -output result/fil9 -minn 2 -maxn 5 

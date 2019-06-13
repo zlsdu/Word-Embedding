@@ -10,9 +10,9 @@ Word2vec，Fasttext，Glove，Elmo，Bert and Flair pre-train Word Embedding
 
 2、Word Embedding教程快速链接
 ------------------
-* [word2vec中文词向量训练](https://github.com/zlsdu/Word-Embedding/blob/master/word2vec/word2vec_report.md)<br>
-* [fasttext中文词向量训练](https://github.com/zlsdu/Word-Embedding/blob/master/fasttext_report.md)<br>
-* [glove中文词向量训练](https://github.com/zlsdu/Word-Embedding/blob/master/glove_report.md)<br>
+* [Word2vec中文词向量训练](https://github.com/zlsdu/Word-Embedding/blob/master/word2vec/word2vec_report.md)<br>
+* [Fasttext中文词向量训练](https://github.com/zlsdu/Word-Embedding/blob/master/fasttext_report.md)<br>
+* [Glove中文词向量训练](https://github.com/zlsdu/Word-Embedding/blob/master/glove_report.md)<br>
 * [Elmo英文和中文词向量训练](https://github.com/zlsdu/Word-Embedding/blob/master/elmo/elmo_report.md)<br>
 * [Bert句向量和词向量训练](https://github.com/zlsdu/Word-Embedding/blob/master/bert_report.md)<br>
 * [Flair词向量训练](https://github.com/zlsdu/Word-Embedding/blob/master/flair/flair_report.md)<br>

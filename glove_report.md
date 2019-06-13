@@ -6,19 +6,17 @@ glove中文词向量训练
 
 glove可通过官方发布的模型来训练中文词向量，步骤如下<br>
 
-(1)首先从官方下载glove并解压<br>
+(1) 首先从官方下载glove并解压: [glove官网](https://github.com/stanfordnlp/GloVe)
 
-[glove官网](https://github.com/stanfordnlp/GloVe)
+(2) 将需要训练的预料处理好，做好分词去停用词处理，然后放到glove文件根目录下<br>
 
-(2)将需要训练的预料处理好，做好分词去停用词处理，然后放到glove文件根目录下<br>
-
-(3)修改demo.sh文件，共有两处修改，如下图所示：
+(3) 修改demo.sh文件，共有两处修改，如下图所示：
 
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/glove1.png)
 
-(4)在glove主文件下即根目录下执行命令进行编译： `make` <br>
+(4) 在glove主文件下即根目录下执行命令进行编译： `make` <br>
 
-(5)在glove根目录下执行训练词向量命令： `bash demo.sh`  <br> 
+(5) 在glove根目录下执行训练词向量命令： `bash demo.sh`  <br> 
 
 如果训练数据大，训练时间长，使用如下命令训练词向量<br>
 
@@ -55,15 +53,18 @@ Glove是一种矩阵分解式词向量预训练模型，如果我们要得到目
 
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/glove6.png)
 
-重点来了，Glove中定义w和c的关联度为：<br>
+
+(1) 重点来了，Glove中定义w和c的关联度为：<br>
 
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/glove7.png)
 
-Glove共现矩阵分解方式：<br>
+
+(2) Glove共现矩阵分解方式：<br>
 
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/glove8.png)
 
-Glove分解误差及优化目标定义：<br>
+
+(3)Glove分解误差及优化目标定义：<br>
 
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/glove9.png)
 
@@ -72,9 +73,9 @@ Glove分解误差及优化目标定义：<br>
 
 2、Glove中Tricks
 -------------
-(1)优点：glove矩阵分解是基于全局预料的，而word2vec是基于部分预料训练的<br>
+(1) 优点：glove矩阵分解是基于全局预料的，而word2vec是基于部分预料训练的<br>
 
-(2)缺点：glove和word2vec、fasttext一样词向量都是静态的，无法解决多义词问题，另外通过glove损失函数，还会发现glove有一个致命问题，看下解释：<br>
+(2) 缺点：glove和word2vec、fasttext一样词向量都是静态的，无法解决多义词问题，另外通过glove损失函数，还会发现glove有一个致命问题，看下解释：<br>
 
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/glove11.png)
 

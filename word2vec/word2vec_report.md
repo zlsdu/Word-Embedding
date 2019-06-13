@@ -2,7 +2,7 @@
 word2vec说明
 1、genism库
 gensim库中提供了word2vec的cbow模型和skipgram模型的实现，可直接调用
-![https://github.com/zlsdu/Word-Embedding/blob/master/phone/word2vec1.png]
+![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/word2vec1.png)
 完整版参考代码
 
 2、tensorflow实现skipgram模型

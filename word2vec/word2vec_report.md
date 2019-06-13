@@ -1,6 +1,8 @@
 
-#word2vec说明<br>
-##1、genism库<br>
+word2vec说明<br>
+======
+1、genism库<br>
+-------
 gensim库中提供了word2vec的cbow模型和skipgram模型的实现，可直接调用
 
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/word2vec1.png)
@@ -8,7 +10,8 @@ gensim库中提供了word2vec的cbow模型和skipgram模型的实现，可直接
 完整版参考代码<br>
 <br>
 
-##2、tensorflow实现skipgram模型<br>
+2、tensorflow实现skipgram模型<br>
+-------
 skipgram模型使用中心词预测上下文，网上介绍很多了也可直接去看论文
 本模型实验采用的数据时wiki百科中文数据，有原版和分词后版本，数据量大下载请移步
 实现详细直接看代码，代码中关键处都有注释，这里提一下word2vec中常用的nce loss损失函数，nce loss函数个参数定义如下

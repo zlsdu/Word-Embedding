@@ -6,8 +6,7 @@ Bert训练句向量和词向量主要是利用了bert-as-service库进行训练�
 
 ![image](https://github.com/zlsdu/Word-Embedding/blob/master/phone/bert1.png)
 
-注意由上述得到的是Word piece Embeddings而不是Word Embedding，因为使用Bert时，利用Bert模型Fine tuning效果远比使用Bert Embedding效果好，因此这里不对Bert Embedding做详细介绍，如果想要使用可以参考以下两个网址，里面有详细介绍：<br>
-[bert-as-service](https://github.com/hanxiao/bert-as-service)、[bert-as-service详细文档](https://bert-as-service.readthedocs.io/en/latest/tutorial/token-embed.html)
+注意由上述得到的是Word piece Embeddings而不是Word Embedding，因为使用Bert时，利用Bert模型Fine tuning效果远比使用Bert Embedding效果好，因此这里不对Bert Embedding做详细介绍，如果想要使用可以参考以下两个网址，里面有详细介绍：[bert-as-service](https://github.com/hanxiao/bert-as-service)、[bert-as-service详细文档](https://bert-as-service.readthedocs.io/en/latest/tutorial/token-embed.html)
 
 
 Bert原理简介
